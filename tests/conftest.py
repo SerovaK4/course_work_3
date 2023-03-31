@@ -3,10 +3,9 @@ import pytest
 
 @pytest.fixture
 def test_data():
-    return {
+    return [
         {
             "id": 441945886,
-            "state": "EXECUTED",
             "date": "2019-08-26T10:50:58.294041",
             "operationAmount": {
                 "amount": "31957.58",
@@ -31,12 +30,11 @@ def test_data():
                 }
             },
             "description": "Перевод организации",
-            "from": "MasterCard 7158300734726758",
             "to": "Счет 35383033474447895560"
         },
         {
             "id": 939719570,
-            "state": "EXECUTED",
+            "state": "CANCELED",
             "date": "2018-06-30T02:08:58.425572",
             "operationAmount": {
                 "amount": "9824.07",
@@ -92,6 +90,5 @@ def test_data():
             "description": "Перевод со счета на счет",
             "from": "Счет 44812258784861134719",
             "to": "Счет 74489636417521191160"
-        },
-
-    }
+        }
+    ]

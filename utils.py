@@ -2,22 +2,40 @@ import json
 from datetime import datetime
 
 
+"""
+Открытие и чтение файла со списком переводов
+"""
+
+
 def get_data():
     with open("operations.json", "r", encoding="utf-8") as file:
         data = json.load(file)
     return data
 
 
+"""
+Фильтрация данных списка, чтобы статус перевода был выполнен
+"""
+
+
 def get_filtrate_data(data, filtered_empty_from):
     data = [x for x in data if "state" in x and x["state"] == "EXECUTED"]
-    if filtered_empty_from:
-        data = [x for x in data if "from" in x]
     return data
+
+
+"""
+Сортировка списка по дате и запись 5 последних из них
+"""
 
 
 def get_last_values(data, count_values):
     data = sorted(data, key=lambda x: x["date"], reverse=True)
     return data[:count_values]
+
+
+"""
+Оформление вывода 5 последних операций в необходимом виде
+"""
 
 
 def get_formed_data(data):
